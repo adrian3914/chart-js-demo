@@ -5,6 +5,8 @@ import {NgChartsModule} from "ng2-charts";
 import {RouterModule, Routes} from "@angular/router";
 import { DashboardContainerComponent } from './dashboard-container/dashboard-container.component';
 import {HttpClientModule} from "@angular/common/http";
+import { InfoTabComponent } from './info-tab/info-tab.component';
+import { FilterMenuComponent } from './filter-menu/filter-menu.component';
 
 
 const SHARED_ROUTES: Routes = [
@@ -17,7 +19,9 @@ const SHARED_ROUTES: Routes = [
 @NgModule({
   declarations: [
     ChartComponent,
-    DashboardContainerComponent
+    DashboardContainerComponent,
+    InfoTabComponent,
+    FilterMenuComponent
   ],
   imports: [
     CommonModule,

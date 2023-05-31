@@ -14,4 +14,8 @@ export class ApiConnectorService {
   fetchReferralsData(): Observable<Candidate[]> {
     return this.http.get<Candidate[]>('assets/mock-data/candidates.json');
   }
+
+  fetchCandidateStartDates(): Observable<Candidate[]> {
+    return this.http.get<Candidate[]>('assets/mock-data/candidates.json');
+  }
 }

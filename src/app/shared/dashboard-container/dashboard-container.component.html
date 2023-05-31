@@ -1,12 +1,24 @@
+<div class="row mt-3">
+  <div class="row">
+    <div class="col p-0" *ngFor="let informationTab of informationTabs">
+      <app-info-tab
+        [heading]="informationTab.heading"
+        [value]="informationTab.value"
+      ></app-info-tab>
+    </div>
+  </div>
+</div>
 
 <div class="row mt-3">
   <div class="col-md-8">
 
   </div>
-  <div class="col-md-4">
+  <div class="col-md-4" *ngIf="data$ | async as data">
+    <app-filter-menu [dates]="data.dates"></app-filter-menu>
+    <br>
     <app-chart
       [type]="'pie'"
-      [data]="referralPieChart.data"
+      [data]="data.chartData"
       [options]="referralPieChart.options"
       [plugins]="referralPieChart.plugins"
     ></app-chart>

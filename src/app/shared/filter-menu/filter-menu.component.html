@@ -1,0 +1,45 @@
+<div class="row ms-1">
+  <div class="fs-5 fw-bold ps-2">Referrals</div>
+  <select #filteredBy
+          class="form-select form-select-sm w-auto border-0 text-muted me-1"
+          aria-label="Default select"
+          (click)="onFilteredBy(filteredBy.value)"
+  >
+    <option value="1">Per Month</option>
+    <option value="2">Per Year</option>
+  </select>
+
+  <ng-container *ngIf="filteredBy.value == '1' ; else yearSelect">
+    <select
+      #month
+      class="form-select form-select-sm w-auto border-0 text-muted"
+      aria-label="Month select"
+      id="inputSelect"
+      (click)="onValueSection(month.value)"
+
+    >
+      <option
+        *ngFor="let month of months; let i = index"
+        value=" {{ i }}"
+      > {{ month }}</option>
+    </select>
+  </ng-container>
+  <ng-template #yearSelect>
+    <select
+      #year
+      class="form-select form-select-sm w-auto border-0 text-muted"
+      aria-label="Month select"
+      id="years"
+      (click)="onValueSection(year.value)"
+
+    >
+      <option
+        *ngFor="let year of years; let i = index"
+        value=" {{ i }}"
+      > {{ year }}</option>
+    </select>
+  </ng-template>
+</div>
+
+
+
